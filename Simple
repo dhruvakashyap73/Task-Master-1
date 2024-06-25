@@ -1,0 +1,27 @@
+# Cloning a Repository
+git clone https://github.com/control-systems/repo.git
+
+# Creating a New Branch for a Feature
+git checkout -b pid-controller
+
+# Making Changes and Committing
+git add .
+git commit -m "Implemented basic PID controller"
+
+# Pushing the New Branch to Remote Repository
+git push origin pid-controller
+
+# Fetching Updates from Remote
+git fetch origin
+
+# Pulling Updates from Main Branch
+git pull origin main
+
+# Switching Back to Main Branch
+git checkout main
+
+# Resetting the Current Branch to a Previous Commit
+git reset --hard HEAD~1
+
+# Deleting an Old Branch
+git branch -d old-feature-branch
