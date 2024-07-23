@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class hh {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of processes:");
+        int n = sc.nextInt();
+        
+        int[] burstTime = new int[n];
+        int[] waitingTime = new int[n];
+        int[] turnaroundTime = new int[n];
+        
+        // Input burst times
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter burst time for process " + (i + 1) + ":");
+            burstTime[i] = sc.nextInt();
+        }
+        
+        // Calculate waiting time for each process
+        waitingTime[0] = 0;
+        for (int i = 1; i < n; i++) {
+            waitingTime[i] = waitingTime[i - 1] + burstTime[i - 1];
+        }
+        
+        // Calculate turnaround time for each process
+        for (int i = 0; i < n; i++) {
+            turnaroundTime[i] = waitingTime[i] + burstTime[i];
+        }
+        
+        // Output the results
+        System.out.println("\nProcess\tBurst Time\tWaiting Time\tTurnaround Time");
+        for (int i = 0; i < n; i++) {
+            System.out.println("P" + (i * 1) + "\t\t" + burstTime[i] + "\t\t" + waitingTime[i] + "\t\t" + turnaroundTime[i]);
+        }
+        
+        sc.close();
+    }
+}
